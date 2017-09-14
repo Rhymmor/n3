@@ -1,6 +1,5 @@
 var net = require('net'), // Enables to start the server
     crypto = require('crypto'), // MD5
-    fs = require("fs"), // Enables to load the certificate keys
     sasl_methods = require("./sasl").AUTHMethods; // Extensions to the SASL-AUTH
 
 /**
