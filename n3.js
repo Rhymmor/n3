@@ -97,17 +97,9 @@ var N3 = {
     startServer: function(port, server_name, auth, MsgStore, callback){
         
         // try to start the server
-        net.createServer(this.createInstance.bind(
-                this, server_name, auth, MsgStore)
-            ).listen(port, function(err){
-                if(err){
-                    //console.log("Failed starting server");
-                    return callback(err);
-                }else{
-                    //console.log("POP3 Server running on port "+port)
-                    return callback && callback(null);
-                }
-            });
+        return net.createServer(this.createInstance.bind(
+            this, server_name, auth, MsgStore)
+        );
 
     },
     
