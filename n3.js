@@ -94,11 +94,13 @@ var N3 = {
      * Creates a N3 server running on specified port.
      **/
     startServer: function(server_name, auth, MsgStore, callback){
-        
+        const instance = this.createInstance.bind(
+            this, server_name, auth, MsgStore);
         // try to start the server
-        return net.createServer(this.createInstance.bind(
-            this, server_name, auth, MsgStore)
-        );
+        return {
+            ipv4: net.createServer(instance),
+            ipv6: net.createServer(instance)
+        } 
 
     },
     
